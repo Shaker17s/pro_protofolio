@@ -213,6 +213,8 @@ export default function Terminal({ onAction }: TerminalProps) {
           type="button" 
           className={`terminal-mic-btn ${isListening ? "listening" : ""}`}
           onClick={toggleListen}
+          aria-label={isListening ? "Stop voice input" : "Start voice input"}
+          title={isListening ? "Stop voice input" : "Start voice input"}
           style={{ 
             background: 'transparent', 
             border: 'none', 

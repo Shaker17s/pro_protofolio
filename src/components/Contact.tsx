@@ -25,9 +25,9 @@ const Contact = () => {
           <div className="contact-box">
             <h4>Stay Connected</h4>
             <div className="footer-icons">
-              <a href="https://github.com/Shaker17s" target="_blank" rel="noreferrer"><FiGithub /></a>
-              <a href="https://www.linkedin.com/in/shaker-abdallah-79b0a1339/" target="_blank" rel="noreferrer"><FiLinkedin /></a>
-              <a href="https://www.instagram.com/s_h_a_k_err/" target="_blank" rel="noreferrer"><FiInstagram /></a>
+              <a href="https://github.com/Shaker17s" target="_blank" rel="noreferrer" aria-label="GitHub Profile" title="GitHub Profile"><FiGithub /></a>
+              <a href="https://www.linkedin.com/in/shaker-abdallah-79b0a1339/" target="_blank" rel="noreferrer" aria-label="LinkedIn Profile" title="LinkedIn Profile"><FiLinkedin /></a>
+              <a href="https://www.instagram.com/s_h_a_k_err/" target="_blank" rel="noreferrer" aria-label="Instagram Profile" title="Instagram Profile"><FiInstagram /></a>
             </div>
           </div>
           <div className="contact-box">

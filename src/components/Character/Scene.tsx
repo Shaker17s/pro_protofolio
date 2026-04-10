@@ -121,7 +121,7 @@ const Scene = () => {
           <ambientLight intensity={1.5} />
           <Environment preset="city" />
           
-          <EffectComposer disableNormalPass>
+          <EffectComposer enableNormalPass={false}>
             <Bloom 
               luminanceThreshold={1} 
               mipmapBlur 
