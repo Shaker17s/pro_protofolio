@@ -8,7 +8,7 @@ interface LoadingProps {
   isOverlay?: boolean;
 }
 
-const Loading = ({ percent = 0, isOverlay = false }: LoadingProps) => {
+const Loading = ({ percent = 0 }: LoadingProps) => {
   const { isLoading } = useLoading();
   const [shouldRender, setShouldRender] = useState(true);
 

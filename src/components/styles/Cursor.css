@@ -1,33 +1,41 @@
 .cursor-main {
-  --size: 0px;
   position: fixed;
-  top: calc(var(--size) / -2);
-  left: calc(var(--size) / -2);
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50px;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
   pointer-events: none;
-  z-index: 99;
-  background-color: #e6c3ff;
-  box-shadow: 0px 0px 30px 0px rgb(175, 131, 255);
+  z-index: 10000;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              background-color 0.3s ease,
+              border-color 0.3s ease,
+              width 0.3s ease,
+              height 0.3s ease;
   mix-blend-mode: difference;
-  transition: top 0.3s ease-out, left 0.3s ease-out, width 0.3s ease-out,
-    height 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.cursor-icons {
-  top: 10px;
-  left: 10px;
-  height: calc(var(--cursorH) - 20px);
-  transition: all 0.5s ease-out, height 0.5s ease-in-out;
+
+.cursor-inner {
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  border-radius: 50%;
 }
-.cursor-disable {
-  --size: 0px;
+
+.cursor-main.expanding {
+  transform: scale(2);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #00f3ff;
 }
-@media only screen and (min-width: 600px) {
+
+@media (max-width: 1024px) {
   .cursor-main {
-    --size: 50px;
-  }
-  .cursor-disable {
-    --size: 0px;
+    display: none;
   }
 }

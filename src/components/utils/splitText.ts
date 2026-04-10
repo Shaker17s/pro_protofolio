@@ -35,7 +35,7 @@ export default function setSplitText() {
         scrollTrigger: {
           trigger: para,
           toggleActions: ToggleAction,
-          start: "top 90%",
+          start: TriggerStart,
         },
         duration: 0.8,
         ease: "power3.out",
@@ -68,7 +68,7 @@ export default function setSplitText() {
         scrollTrigger: {
           trigger: title,
           toggleActions: ToggleAction,
-          start: "top 90%",
+          start: TriggerStart,
         },
         duration: 1,
         ease: "power4.out",

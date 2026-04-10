@@ -1,6 +1,17 @@
-import React from "react";
 import { FiGithub, FiLinkedin, FiInstagram } from "react-icons/fi";
+import { useMagnetic } from "../hooks/useMagnetic";
 import "./styles/SocialIcons.css";
+
+const MagneticLink = ({ children, href }: { children: React.ReactNode, href: string }) => {
+  const ref = useMagnetic();
+  return (
+    <div ref={ref as any} className="magnetic-wrap">
+      <a href={href} target="_blank" rel="noopener noreferrer" className="social-icon-link">
+        {children}
+      </a>
+    </div>
+  );
+};
 
 const SocialIcons = () => {
   const socials = [
@@ -14,15 +25,9 @@ const SocialIcons = () => {
       <div className="social-icons-wrapper">
         <div className="social-icons">
           {socials.map((social, index) => (
-            <a
-              key={index}
-              href={social.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-icon-link"
-            >
+            <MagneticLink key={index} href={social.link}>
               {social.icon}
-            </a>
+            </MagneticLink>
           ))}
         </div>
       </div>

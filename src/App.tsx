@@ -1,24 +1,27 @@
-import { lazy, Suspense, useEffect } from "react";
+import { useEffect } from "react";
 import MainContainer from "./components/MainContainer";
 import CharacterModel from "./components/Character";
 import { useLoading } from "./context/LoadingProvider";
 import Loading from "./components/Loading";
+import { initSmoothScroll, destroySmoothScroll } from "./utils/scroll";
 import "./App.css";
 
-// Lazy load non-critical sections
-const TechStack = lazy(() => import("./components/TechStack"));
-
 export default function App() {
-  const { isLoading, setLoading, setIsLoading } = useLoading();
+  const { isLoading, setIsLoading } = useLoading();
 
   useEffect(() => {
+    initSmoothScroll();
+
     // Fixed time transition: Site opens regardless of 3D state
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500); // 2.5s is the sweet spot for professional entry
+    }, 2500); 
     
-    return () => clearTimeout(timer);
-  }, []);
+    return () => {
+      clearTimeout(timer);
+      destroySmoothScroll();
+    };
+  }, [setIsLoading]);
 
   return (
     <div className="app-shell">

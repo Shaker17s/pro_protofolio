@@ -2,7 +2,8 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { GLTFLoader, DRACOLoader } from "three-stdlib";
-import { useAnimations, Environment, Float, PerspectiveCamera, SpotLight } from "@react-three/drei";
+import { useAnimations, Environment, Float, PerspectiveCamera } from "@react-three/drei";
+import { EffectComposer, Bloom, ChromaticAberration } from "@react-three/postprocessing";
 import { useLoading } from "../../context/LoadingProvider";
 import { decryptFile } from "./utils/decrypt";
 import { setCharTimeline, setAllTimeline } from "../utils/GsapScroll";
@@ -119,6 +120,20 @@ const Scene = () => {
           </Float>
           <ambientLight intensity={1.5} />
           <Environment preset="city" />
+          
+          <EffectComposer disableNormalPass>
+            <Bloom 
+              luminanceThreshold={1} 
+              mipmapBlur 
+              intensity={0.5} 
+              radius={0.4}
+            />
+            <ChromaticAberration 
+              offset={new THREE.Vector2(0.001, 0.001)} 
+              radialModulation={false}
+              modulationOffset={0}
+            />
+          </EffectComposer>
         </Suspense>
       </Canvas>
     </div>

@@ -1,4 +1,3 @@
-import { PropsWithChildren } from "react";
 import "./styles/Landing.css";
 import GlitchText from "./GlitchText";
 

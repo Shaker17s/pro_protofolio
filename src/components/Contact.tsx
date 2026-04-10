@@ -1,4 +1,4 @@
-import { MdArrowOutward, MdCopyright } from "react-icons/md";
+import { MdCopyright } from "react-icons/md";
 import { FiGithub, FiLinkedin, FiInstagram } from "react-icons/fi";
 import "./styles/Contact.css";
 

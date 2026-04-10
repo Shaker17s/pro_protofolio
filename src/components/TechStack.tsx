@@ -55,8 +55,9 @@ function SphereGeo({
   useFrame((_state, delta) => {
     if (!isActive) return;
     delta = Math.min(0.1, delta);
+    const translation = api.current!.translation();
     const impulse = vec
-      .copy(api.current!.translation())
+      .set(translation.x, translation.y, translation.z)
       .normalize()
       .multiply(
         new THREE.Vector3(
@@ -205,10 +206,8 @@ const TechStack = () => {
         </Physics>
         <Environment
           files="/models/char_enviorment.hdr"
-          environmentIntensity={0.5}
-          environmentRotation={[0, 4, 2]}
         />
-        <EffectComposer enableNormalPass={false}>
+        <EffectComposer>
           <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
         </EffectComposer>
       </Canvas>

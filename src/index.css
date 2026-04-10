@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono&family=UnifrakturMaguntia&display=swap');
+
 :root {
   --neon-cyan: #00f3ff;
   --neon-pink: #ff00ff;
@@ -15,8 +17,6 @@
   --cWidth: 100%;
   --cMaxWidth: 1400px;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono&family=UnifrakturMaguntia&display=swap');
 
 * {
   margin: 0;

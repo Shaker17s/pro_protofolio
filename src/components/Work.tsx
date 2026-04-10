@@ -1,10 +1,20 @@
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { portfolioData } from "../data/portfolioData";
+import { useMagnetic } from "../hooks/useMagnetic";
 
 gsap.registerPlugin(useGSAP);
+
+const MagneticButton = ({ children, href }: { children: React.ReactNode, href: string }) => {
+  const ref = useMagnetic();
+  return (
+    <div ref={ref as any} className="magnetic-btn-wrap">
+      <a href={href} target="_blank" className="project-link-btn">{children}</a>
+    </div>
+  );
+};
 
 const Work = () => {
   useGSAP(() => {
@@ -20,6 +30,7 @@ const Work = () => {
       ease: "power4.out"
     });
   }, []);
+
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
@@ -27,29 +38,7 @@ const Work = () => {
           Featured <span>Projects</span>
         </h2>
         <div className="work-flex">
-          {[
-            {
-              title: "Django BookStore",
-              category: "Scalable E-commerce",
-              tools: "Django, PostgreSQL, Stripe, Redis",
-              link: "https://github.com/Shaker17s/django_store",
-              image: "/images/bookstore_final.png" 
-            },
-            {
-              title: "NexusAI Hub",
-              category: "Professional AI Social Network",
-              tools: "React, Django REST, NLP, AWS",
-              link: "https://github.com/Shaker17s/NexusAI",
-              image: "/images/nexus_v2.png"
-            },
-            {
-              title: "VisionScribe",
-              category: "CV Interaction System",
-              tools: "Python, OpenCV, MediaPipe",
-              link: "https://github.com/Shaker17s/VisionScribe",
-              image: "/images/visionscribe.png"
-            },
-          ].map((project, index) => (
+          {portfolioData.projects.map((project, index) => (
             <div className="work-box" key={index}>
               <div className="work-info">
                 <div className="work-title">
@@ -61,8 +50,8 @@ const Work = () => {
                   </div>
                 </div>
                 <h4>Core Stack</h4>
-                <p>{project.tools}</p>
-                <a href={project.link} target="_blank" className="project-link-btn">View Project</a>
+                <p>{project.tools.join(", ")}</p>
+                <MagneticButton href={project.link}>View Project</MagneticButton>
               </div>
               <WorkImage image={project.image} alt={project.title} />
             </div>

@@ -5,7 +5,6 @@ import {
   useEffect,
   useState,
 } from "react";
-import Loading from "../components/Loading";
 
 interface LoadingType {
   isLoading: boolean;
