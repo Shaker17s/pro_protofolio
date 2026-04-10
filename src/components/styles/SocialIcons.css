@@ -1,0 +1,72 @@
+.icons-section {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.social-icons-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 30px 15px;
+  border-radius: 50px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glassy background that appears on group hover */
+.icons-section:hover .social-icons-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4),
+              inset 0 0 20px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.social-icon-link {
+  font-size: 26px;
+  color: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.icons-section:hover .social-icon-link {
+  color: var(--neon-cyan);
+  opacity: 1;
+}
+
+.social-icon-link:hover {
+  transform: scale(1.3);
+  color: #fff !important;
+  filter: drop-shadow(0 0 20px var(--neon-cyan));
+}
+
+.icons-line {
+  width: 1px;
+  height: 80px;
+  background: var(--neon-cyan);
+  opacity: 0.3;
+}
+
+.resume-button {
+  transform: rotate(-90deg) translateX(40px);
+  transform-origin: right bottom;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover {
+  color: #fff;
+  letter-spacing: 5px;
+}
