@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 
 export function useMagnetic() {
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const element = ref.current;
