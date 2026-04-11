@@ -11,7 +11,7 @@ const MagneticButton = ({ children, href }: { children: React.ReactNode, href: s
   const ref = useMagnetic();
   return (
     <div ref={ref as any} className="magnetic-btn-wrap">
-      <a href={href} target="_blank" className="project-link-btn">{children}</a>
+      <a href={href} target="_blank" rel="noopener noreferrer" className="project-link-btn">{children}</a>
     </div>
   );
 };
