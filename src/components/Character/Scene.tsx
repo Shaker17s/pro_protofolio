@@ -1,7 +1,7 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { GLTFLoader, DRACOLoader } from "three-stdlib";
+import { GLTFLoader, DRACOLoader, GLTF } from "three-stdlib";
 import { useAnimations, Environment, Float, PerspectiveCamera } from "@react-three/drei";
 import { EffectComposer, Bloom, ChromaticAberration } from "@react-three/postprocessing";
 import { useLoading } from "../../context/LoadingProvider";
@@ -12,7 +12,7 @@ import { setCharTimeline, setAllTimeline } from "../utils/GsapScroll";
 const FALLBACK_MODEL = "https://models.readyplayer.me/638515f4972c20d210d7e4d6.glb";
 
 const useEncryptedGLTF = (url: string, password: string) => {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<GLTF | null>(null);
   const { setLoading } = useLoading();
 
   useEffect(() => {
@@ -53,7 +53,7 @@ const useEncryptedGLTF = (url: string, password: string) => {
   return data;
 };
 
-const Model = ({ gltf, camera }: { gltf: any, camera: THREE.PerspectiveCamera }) => {
+const Model = ({ gltf, camera }: { gltf: GLTF, camera: THREE.PerspectiveCamera }) => {
   const group = useRef<THREE.Group>(null);
   const { actions } = useAnimations(gltf.animations, group);
   const headBone = useRef<THREE.Object3D | null>(null);
