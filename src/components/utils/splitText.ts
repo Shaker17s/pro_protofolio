@@ -17,12 +17,14 @@ export default function setSplitText() {
     
     const text = para.innerText;
     para.innerHTML = "";
+    const fragment = document.createDocumentFragment();
     text.split(" ").forEach(word => {
       const span = document.createElement("span");
       span.style.display = "inline-block";
       span.innerText = word + " ";
-      para.appendChild(span);
+      fragment.appendChild(span);
     });
+    para.appendChild(fragment);
     
     para.classList.add("split-ready");
     
@@ -49,12 +51,14 @@ export default function setSplitText() {
 
     const text = title.innerText;
     title.innerHTML = "";
+    const fragment = document.createDocumentFragment();
     [...text].forEach(char => {
       const span = document.createElement("span");
       span.style.display = "inline-block";
       span.innerText = char === " " ? "\u00A0" : char;
-      title.appendChild(span);
+      fragment.appendChild(span);
     });
+    title.appendChild(fragment);
 
     title.classList.add("split-ready");
 
