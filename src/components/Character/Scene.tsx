@@ -24,7 +24,9 @@ const useEncryptedGLTF = (url: string, password: string) => {
         try {
           buffer = await decryptFile(url, password);
         } catch (e) {
-          console.warn("Encrypted model failed, loading fallback...", e);
+          if (import.meta.env.DEV) {
+            console.warn("Encrypted model failed, loading fallback...", e);
+          }
           const response = await fetch(FALLBACK_MODEL);
           buffer = await response.arrayBuffer();
         }
@@ -42,7 +44,9 @@ const useEncryptedGLTF = (url: string, password: string) => {
           }
         });
       } catch (e) {
-        console.error("Failed to load any model", e);
+        if (import.meta.env.DEV) {
+          console.error("Failed to load any model", e);
+        }
         setLoading(100); // Prevent stuck loader
       }
     };
