@@ -10,7 +10,7 @@ gsap.registerPlugin(useGSAP);
 const MagneticButton = ({ children, href }: { children: React.ReactNode, href: string }) => {
   const ref = useMagnetic();
   return (
-    <div ref={ref as any} className="magnetic-btn-wrap">
+    <div ref={ref} className="magnetic-btn-wrap">
       <a href={href} target="_blank" className="project-link-btn">{children}</a>
     </div>
   );
@@ -21,13 +21,15 @@ const Work = () => {
     gsap.from(".work-box", {
       scrollTrigger: {
         trigger: ".work-flex",
-        start: "top 80%",
+        start: "top 85%",
+        end: "bottom 80%",
+        scrub: 1,
       },
       y: 100,
       opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power4.out"
+      duration: 1.5,
+      stagger: 0.3,
+      ease: "power3.out"
     });
   }, []);
 

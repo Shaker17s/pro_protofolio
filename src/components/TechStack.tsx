@@ -192,7 +192,7 @@ const TechStack = () => {
           castShadow
           shadow-mapSize={[512, 512]}
         />
-        <directionalLight position={[0, 5, -4]} intensity={2} />
+        <directionalLight position={[0, 5, -4]} intensity={3.5} />
         <Physics gravity={[0, 0, 0]}>
           <Pointer isActive={isActive} />
           {spheres.map((props, i) => (
@@ -208,7 +208,7 @@ const TechStack = () => {
           files="/models/char_enviorment.hdr"
         />
         <EffectComposer>
-          <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
+          <N8AO color="#0f002c" aoRadius={3} intensity={3.5} />
         </EffectComposer>
       </Canvas>
     </div>

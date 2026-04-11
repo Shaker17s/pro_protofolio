@@ -9,6 +9,9 @@
   pointer-events: none;
   z-index: -1;
   overflow: hidden;
+  background: linear-gradient(-45deg, #050505, #111115, #080811, #050505);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
 }
 
 .background-glow {
@@ -993,5 +996,17 @@
 
   .project-card--full .project-preview {
     min-height: 16rem;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
