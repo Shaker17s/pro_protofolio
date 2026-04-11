@@ -86,7 +86,7 @@ const Model = ({ gltf, camera }: { gltf: any, camera: THREE.PerspectiveCamera })
 };
 
 const Scene = () => {
-  const gltf = useEncryptedGLTF("/models/character.enc", "Character3D#@");
+  const gltf = useEncryptedGLTF("/models/character.enc", import.meta.env.VITE_MODEL_PASSWORD || "");
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
   const [isReady, setIsReady] = useState(false);
 
