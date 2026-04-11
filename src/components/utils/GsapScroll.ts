@@ -1,12 +1,15 @@
 import * as THREE from "three";
 import gsap from "gsap";
 
+let intensityInterval: ReturnType<typeof setInterval> | null = null;
+
 export function setCharTimeline(
   character: THREE.Object3D<THREE.Object3DEventMap> | null,
   camera: THREE.PerspectiveCamera
 ) {
   let intensity: number = 0;
-  setInterval(() => {
+  if (intensityInterval) clearInterval(intensityInterval);
+  intensityInterval = setInterval(() => {
     intensity = Math.random();
   }, 200);
   const tl1 = gsap.timeline({
