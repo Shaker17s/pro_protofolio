@@ -5,7 +5,7 @@ import "./styles/SocialIcons.css";
 const MagneticLink = ({ children, href }: { children: React.ReactNode, href: string }) => {
   const ref = useMagnetic();
   return (
-    <div ref={ref as any} className="magnetic-wrap">
+    <div ref={ref} className="magnetic-wrap">
       <a href={href} target="_blank" rel="noopener noreferrer" className="social-icon-link">
         {children}
       </a>
