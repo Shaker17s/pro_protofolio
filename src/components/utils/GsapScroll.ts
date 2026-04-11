@@ -36,28 +36,32 @@ export function setCharTimeline(
       invalidateOnRefresh: true,
     },
   });
-  let screenLight: any, monitor: any;
-  character?.children.forEach((object: any) => {
+  let screenLight: THREE.Mesh, monitor: THREE.Mesh;
+  character?.children.forEach((object: THREE.Object3D) => {
     if (object.name === "Plane004") {
-      object.children.forEach((child: any) => {
-        child.material.transparent = true;
-        child.material.opacity = 0;
-        if (child.material.name === "Material.027") {
-          monitor = child;
-          child.material.color.set("#FFFFFF");
+      object.children.forEach((child: THREE.Object3D) => {
+        const mesh = child as THREE.Mesh;
+        const material = mesh.material as THREE.MeshStandardMaterial;
+        material.transparent = true;
+        material.opacity = 0;
+        if (material.name === "Material.027") {
+          monitor = mesh;
+          material.color.set("#FFFFFF");
         }
       });
     }
     if (object.name === "screenlight") {
-      object.material.transparent = true;
-      object.material.opacity = 0;
-      object.material.emissive.set("#C8BFFF");
-      gsap.timeline({ repeat: -1, repeatRefresh: true }).to(object.material, {
+      const mesh = object as THREE.Mesh;
+      const material = mesh.material as THREE.MeshStandardMaterial;
+      material.transparent = true;
+      material.opacity = 0;
+      material.emissive.set("#C8BFFF");
+      gsap.timeline({ repeat: -1, repeatRefresh: true }).to(material, {
         emissiveIntensity: () => intensity * 8,
         duration: () => Math.random() * 0.6,
         delay: () => Math.random() * 0.1,
       });
-      screenLight = object;
+      screenLight = mesh;
     }
   });
   let neckBone = character?.getObjectByName("Neck") || character?.getObjectByName("spine005");
