@@ -31,7 +31,7 @@ interface TerminalProps {
 interface GenUIComponent {
   type: "text" | "chart" | "code";
   content?: string;
-  data?: any[];
+  data?: number[];
   language?: string;
 }
 
@@ -42,7 +42,7 @@ interface LogEntry {
   type: "ai" | "user" | "system";
 }
 
-const ChartUI = ({ data }: { data: any[] }) => (
+const ChartUI = ({ data }: { data: number[] }) => (
   <div style={{ display: 'flex', gap: '8px', height: '60px', alignItems: 'flex-end', marginTop: '10px' }}>
     {data.map((val, i) => (
       <motion.div 
