@@ -16,7 +16,7 @@ export default function setSplitText() {
     if (para.classList.contains("split-ready")) return;
     
     const text = para.innerText;
-    para.innerHTML = "";
+    para.textContent = "";
     text.split(" ").forEach(word => {
       const span = document.createElement("span");
       span.style.display = "inline-block";
@@ -48,7 +48,7 @@ export default function setSplitText() {
     if (title.classList.contains("split-ready")) return;
 
     const text = title.innerText;
-    title.innerHTML = "";
+    title.textContent = "";
     [...text].forEach(char => {
       const span = document.createElement("span");
       span.style.display = "inline-block";
