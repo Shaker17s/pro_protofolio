@@ -6,7 +6,7 @@ import "./styles/Navbar.css";
 const MagneticNavItem = ({ children, href }: { children: React.ReactNode, href: string }) => {
   const ref = useMagnetic();
   return (
-    <div ref={ref as any} className="magnetic-nav-wrap">
+    <div ref={ref} className="magnetic-nav-wrap">
       <a 
         href={href} 
         className="nav-item"

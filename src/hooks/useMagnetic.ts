@@ -1,8 +1,8 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 
-export function useMagnetic() {
-  const ref = useRef<HTMLDivElement | null>(null);
+export function useMagnetic<T extends HTMLElement = HTMLDivElement>() {
+  const ref = useRef<T>(null);
 
   useEffect(() => {
     const element = ref.current;
