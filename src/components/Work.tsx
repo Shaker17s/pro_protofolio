@@ -10,7 +10,7 @@ gsap.registerPlugin(useGSAP);
 const MagneticButton = ({ children, href }: { children: React.ReactNode, href: string }) => {
   const ref = useMagnetic();
   return (
-    <div ref={ref as any} className="magnetic-btn-wrap">
+    <div ref={ref} className="magnetic-btn-wrap">
       <a href={href} target="_blank" className="project-link-btn">{children}</a>
     </div>
   );
